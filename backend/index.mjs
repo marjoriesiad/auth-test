@@ -1,5 +1,9 @@
 import express from "express";
+import { connectDB } from "./db/connectDb.mjs";
+import dotenv from "dotenv";
 
+
+dotenv.config();
 const app = express();
 
 app.get('/', (req, res) => {
@@ -7,8 +11,9 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(3000, () => console.log("Server is running on port 3000"))
+app.listen(3000, () => {
+    connectDB();
+    console.log('Server running on port 3000')
+})
 
 
-// 
-//mongodb+srv://marjoriesiad:<db_password>@cluster0.dhuyg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
