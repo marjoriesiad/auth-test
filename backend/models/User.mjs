@@ -28,3 +28,6 @@ const userSchema = new mongoose.Schema({
     verificationTokenExpiresAt: Date
 
 }, {timestamps: true}); // created at/updated at fields
+
+
+export const User = mongoose.model('User', userSchema)
